@@ -1,5 +1,5 @@
 
-Copyright (c) 2025, Sakura Isayeki <sakura.isayeki@nodsoft.net>
+Copyright (c) 2024, MedHubCompany SAS
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
