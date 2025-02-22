@@ -4,11 +4,22 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <Deterministic>true</Deterministic>
+        <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+        <AnalysisLevel>latest</AnalysisLevel>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+
+        <Title>Vidal Client</Title>
+        <Product>Vidal Client</Product>
+        <Description>HTTP Client for Vidal API</Description>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="JetBrains.Annotations" Version="2024.3.0" />
-      <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.1" />
     </ItemGroup>
-
+    
 </Project>

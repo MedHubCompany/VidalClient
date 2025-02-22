@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <Deterministic>true</Deterministic>
+        <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+        <AnalysisLevel>latest</AnalysisLevel>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+
+        <Authors>Sakura Akeno Isayeki</Authors>
+        <Company>MedHubCompany</Company>
+        <RepositoryUrl>https://github.com/MedHubCompany/VidalClient</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageLicenseExpression>ISC</PackageLicenseExpression>
+        <PackageIcon>icon.png</PackageIcon>
+        <CommonPackageTags>http, api, vidal, client</CommonPackageTags>
+        <PackageTags>$(CommonPackageTags)</PackageTags> <!-- Default package tags -->
+
+        <GitVersionBaseDirectory>$(MSBuildThisFileDirectory)</GitVersionBaseDirectory>
+
+        <!-- Generate XML documentation -->
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup Label="PackageInfoFiles">
+        <!-- Import the Readme at build props level if there is none in the project -->
+
+        <None Condition="!Exists('README.md')" Include="$(_DirectoryBuildPropsBasePath)\README.md" Pack="true" PackagePath="/" />
+        <None Include="$(MSBuildThisFileDirectory)\LICENSE.md" Pack="true" PackagePath="/" />
+        <None Include="$(MSBuildThisFileDirectory)\icon.png" Pack="true" PackagePath="/" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <!-- Nerdbank.GitVersioning -->
+        <PackageReference Include="Nerdbank.GitVersioning" Version="3.7.115" Condition="!Exists('packages.config')" PrivateAssets="all" />
+    </ItemGroup>
+
+    <ItemGroup Condition="$(PackAsTool) != 'true'">
+        <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.2.25" PrivateAssets="All"/>
+    </ItemGroup>
+</Project>
